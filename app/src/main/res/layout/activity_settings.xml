@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llReminder"
+                style="@style/settings_item_layout">
+
+                <TextView
+                    android:id="@+id/tv_reminder_header"
+                    style="@style/settings_header"
+                    android:text="@string/sett_reminder_header" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/activity_vertical_margin">
+
+                    <TextView
+                        android:id="@+id/tv_reminder_label"
+                        style="@style/settings_sub_header"
+                        android:text="@string/sett_reminder_label" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/timerSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:checked="false"
+                        android:gravity="center_vertical" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_reminder_desc"
+                    style="@style/settings_details"
+                    android:paddingTop="@dimen/items_top_padding"
+                    android:paddingBottom="@dimen/items_inbetween_space"
+                    android:text="@string/sett_reminder_desc" />
+
+                <LinearLayout
+                    android:id="@+id/ll_set_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/items_inbetween_space">
+
+                        <TextView
+                            android:id="@+id/tv_reminder_time_label"
+                            style="@style/settings_sub_header"
+                            android:text="@string/sett_reminder_time_label" />
+
+                        <ImageView
+                            android:id="@+id/iv_timer"
+                            android:layout_width="@dimen/timer_icon"
+                            android:layout_height="@dimen/timer_icon"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/ic_launcher_round" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_reminder_time_desc"
+                        style="@style/settings_details"
+                        android:paddingTop="@dimen/items_top_padding"
+                        android:paddingBottom="@dimen/items_inbetween_space"
+                        android:text="@string/sett_reminder_time_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/textColorSecondary" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/timeSettings"
+                    style="@style/settings_sub_header"
+                    android:text="Set Time Format" />
+
+                <CheckBox
+                    android:id="@+id/checkbox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="is24Hrs"
+                    android:textSize="@dimen/_15sdp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:visibility="visible">
+
+                <TextView
+                    style="@style/settings_sub_header"
+                    android:text="Set Clock Color" />
+
+                <Button
+                    android:id="@+id/choosecolor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/colorPrimary"
+                    android:padding="@dimen/_5sdp"
+                    android:text="Pick Color"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_15sdp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_fonts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="Set Font Size"
+                    android:textSize="@dimen/_15sdp" />
+
+                <RadioGroup
+                    android:id="@+id/rg_fonts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_fonts"
+                    android:layout_marginTop="@dimen/_10sdp">
+
+                    <RadioButton
+                        android:id="@+id/rb_smallfont"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Small Font" />
+
+                    <RadioButton
+                        android:id="@+id/rb_bigfont"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Medium Font" />
+
+                    <RadioButton
+                        android:id="@+id/rb_largefont"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Large Font" />
+
+                    <RadioButton
+                        android:id="@+id/rb_default"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Default" />
+                </RadioGroup>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+</LinearLayout>
