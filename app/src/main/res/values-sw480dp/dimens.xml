@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="second_text_size">220dp</dimen>
     <dimen name="clock_text_size_land">70sp</dimen>
     <dimen name="clock_text_size">72sp</dimen>
     <dimen name="abc_action_bar_content_inset_material">16dp</dimen>

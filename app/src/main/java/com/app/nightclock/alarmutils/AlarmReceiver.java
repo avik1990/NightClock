@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import com.app.nightclock.alarm.SettingsActivity;
 
 public class AlarmReceiver extends BroadcastReceiver {
     String TAG = "AlarmReceiver";

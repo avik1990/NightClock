@@ -51,6 +51,9 @@ public class Utils {
     }
 
 
+
+
+
     public static boolean getChecked(Context context) {
         return context.getSharedPreferences("smsreader", 0).getBoolean("isChecked", true);
     }
@@ -88,11 +91,14 @@ public class Utils {
         return datetime;
     }
 
-    public static String PREF_KEY_APP_AUTO_START;
 
-    public static void writeBoolean(Context context, String prefKeyAppAutoStart, boolean b) {
-        SharedPreferences.Editor editor = context.getSharedPreferences(PREF_KEY_APP_AUTO_START, 0).edit();
-        editor.putBoolean(PREF_KEY_APP_AUTO_START, b);
+    public static void writeBoolean(Context context, boolean b) {
+        SharedPreferences.Editor editor = context.getSharedPreferences("smsreader", 0).edit();
+        editor.putBoolean("PREF_KEY_APP_AUTO_START", b);
         editor.commit();
+    }
+
+    public static boolean getAutoStart(Context context) {
+        return context.getSharedPreferences("smsreader", 0).getBoolean("PREF_KEY_APP_AUTO_START", false);
     }
 }

@@ -72,4 +72,10 @@
     <color name="tooltip_background_light">#e6ffffff</color>
     <color name="track_active">#66069ecf</color>
     <color name="track_inactive">#66a5a5a5</color>
+
+    <color name="colorPrimaryLight">#CFD8DC</color>
+    <color name="colorPrimaryText">#212121</color>
+    <color name="colorSecondaryText">#757575</color>
+    <color name="colorIcons">#FFFFFF</color>
+    <color name="colorDivider">#BDBDBD</color>
 </resources>

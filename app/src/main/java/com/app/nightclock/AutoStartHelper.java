@@ -112,7 +112,7 @@ public class AutoStartHelper {
         if (isPackageExists(context, PACKAGE_ASUS_MAIN)) {
             showAlert(context, (dialog, which) -> {
                 try {
-                    Utils.writeBoolean(context, Utils.PREF_KEY_APP_AUTO_START, true);
+                    Utils.writeBoolean(context, true);
                     startIntent(context, PACKAGE_ASUS_MAIN, PACKAGE_ASUS_COMPONENT);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -125,14 +125,16 @@ public class AutoStartHelper {
     private void showAlert(Context context, DialogInterface.OnClickListener onClickListener) {
         new AlertDialog.Builder(context).setTitle("Allow AutoStart")
                 .setMessage("Please enable auto start in settings.")
-                .setPositiveButton("Allow", onClickListener).show().setCancelable(false);
+                .setPositiveButton("Allow", onClickListener)
+                .show()
+                .setCancelable(false);
     }
 
     private void autoStartXiaomi(final Context context) {
         if (isPackageExists(context, PACKAGE_XIAOMI_MAIN)) {
             showAlert(context, (dialog, which) -> {
                 try {
-                    Utils.writeBoolean(context, Utils.PREF_KEY_APP_AUTO_START, true);
+                    Utils.writeBoolean(context, true);
                     startIntent(context, PACKAGE_XIAOMI_MAIN, PACKAGE_XIAOMI_COMPONENT);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -150,7 +152,7 @@ public class AutoStartHelper {
                 public void onClick(DialogInterface dialog, int which) {
 
                     try {
-                        Utils.writeBoolean(context, Utils.PREF_KEY_APP_AUTO_START, true);
+                        Utils.writeBoolean(context, true);
                         startIntent(context, PACKAGE_LETV_MAIN, PACKAGE_LETV_COMPONENT);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -170,7 +172,7 @@ public class AutoStartHelper {
                 public void onClick(DialogInterface dialog, int which) {
 
                     try {
-                        Utils.writeBoolean(context, Utils.PREF_KEY_APP_AUTO_START, true);
+                        Utils.writeBoolean(context, true);
                         startIntent(context, PACKAGE_HONOR_MAIN, PACKAGE_HONOR_COMPONENT);
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -189,17 +191,17 @@ public class AutoStartHelper {
                 public void onClick(DialogInterface dialog, int which) {
 
                     try {
-                        Utils.writeBoolean(context, Utils.PREF_KEY_APP_AUTO_START, true);
+                        Utils.writeBoolean(context, true);
                         startIntent(context, PACKAGE_OPPO_MAIN, PACKAGE_OPPO_COMPONENT);
                     } catch (Exception e) {
                         e.printStackTrace();
                         try {
-                            Utils.writeBoolean(context, Utils.PREF_KEY_APP_AUTO_START, true);
+                            Utils.writeBoolean(context, true);
                             startIntent(context, PACKAGE_OPPO_FALLBACK, PACKAGE_OPPO_COMPONENT_FALLBACK);
                         } catch (Exception ex) {
                             ex.printStackTrace();
                             try {
-                                Utils.writeBoolean(context, Utils.PREF_KEY_APP_AUTO_START, true);
+                                Utils.writeBoolean(context, true);
                                 startIntent(context, PACKAGE_OPPO_MAIN, PACKAGE_OPPO_COMPONENT_FALLBACK_A);
                             } catch (Exception exx) {
                                 exx.printStackTrace();
@@ -222,17 +224,17 @@ public class AutoStartHelper {
                 public void onClick(DialogInterface dialog, int which) {
 
                     try {
-                        Utils.writeBoolean(context, Utils.PREF_KEY_APP_AUTO_START, true);
+                        Utils.writeBoolean(context, true);
                         startIntent(context, PACKAGE_VIVO_MAIN, PACKAGE_VIVO_COMPONENT);
                     } catch (Exception e) {
                         e.printStackTrace();
                         try {
-                            Utils.writeBoolean(context, Utils.PREF_KEY_APP_AUTO_START, true);
+                            Utils.writeBoolean(context, true);
                             startIntent(context, PACKAGE_VIVO_FALLBACK, PACKAGE_VIVO_COMPONENT_FALLBACK);
                         } catch (Exception ex) {
                             ex.printStackTrace();
                             try {
-                                Utils.writeBoolean(context, Utils.PREF_KEY_APP_AUTO_START, true);
+                                Utils.writeBoolean(context, true);
                                 startIntent(context, PACKAGE_VIVO_MAIN, PACKAGE_VIVO_COMPONENT_FALLBACK_A);
                             } catch (Exception exx) {
                                 exx.printStackTrace();
@@ -254,7 +256,7 @@ public class AutoStartHelper {
                 public void onClick(DialogInterface dialog, int which) {
 
                     try {
-                        Utils.writeBoolean(context, Utils.PREF_KEY_APP_AUTO_START, true);
+                        Utils.writeBoolean(context, true);
                         startIntent(context, PACKAGE_NOKIA_MAIN, PACKAGE_NOKIA_COMPONENT);
                     } catch (Exception e) {
                         e.printStackTrace();

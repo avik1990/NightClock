@@ -210,7 +210,7 @@
 
         <com.app.nightclock.CustomDigitalClockSecond
             android:id="@+id/digital_clock_second"
-            android:layout_width="270dp"
+            android:layout_width="@dimen/second_text_size"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/digital_clock_min"
             android:gravity="left"

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="second_text_size">300dp</dimen>
+    <dimen name="clock_text_size_land">160sp</dimen>
+    <dimen name="clock_text_size">100sp</dimen>
     <dimen name="abc_action_bar_content_inset_material">16dp</dimen>
     <dimen name="abc_action_bar_content_inset_with_nav">72dp</dimen>
     <dimen name="abc_action_bar_default_height_material">56dp</dimen>
@@ -122,7 +125,6 @@
     <dimen name="tooltip_vertical_padding">6.5dp</dimen>
     <dimen name="tooltip_y_offset_non_touch">0dp</dimen>
     <dimen name="tooltip_y_offset_touch">16dp</dimen>
-    <dimen name="clock_text_size_land">140sp</dimen>
-    <dimen name="clock_text_size">100sp</dimen>
+
 
 </resources>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="clock_text_size_land">118sp</dimen>
+    <dimen name="second_text_size">270dp</dimen>
+    <dimen name="clock_text_size_land">132sp</dimen>
     <dimen name="clock_text_size">72sp</dimen>
     <dimen name="_100sdp">100dp</dimen>
     <dimen name="_101sdp">101dp</dimen>

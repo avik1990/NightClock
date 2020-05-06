@@ -1,4 +1,4 @@
-package com.app.nightclock.alarm;
+package com.app.nightclock;
 
 import android.annotation.TargetApi;
 import android.app.Dialog;
@@ -26,13 +26,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
-import com.app.nightclock.R;
-import com.app.nightclock.TimerActivity;
-import com.app.nightclock.alarmutils.AlarmReceiver;
+import com.app.nightclock.alarm.AlarmActivity;
 import com.app.nightclock.alarmutils.LocalData;
-import com.app.nightclock.alarmutils.NotificationScheduler;
 import com.app.nightclock.util.Utils;
 import com.google.android.flexbox.FlexboxLayout;
 
@@ -64,6 +60,8 @@ public class SettingsActivity extends AppCompatActivity {
     List<String> listColor = new ArrayList<>();
     Button choosecolor;
     int clicked = -1;
+    Button btnAlarm;
+    Button btnAboutus;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,8 +69,6 @@ public class SettingsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.localData = new LocalData(getApplicationContext());
         this.context = this;
-        //this.myClipboard = (ClipboardManager) getSystemService("clipboard");
-
 
         initViews();
         insertColor();
@@ -87,16 +83,16 @@ public class SettingsActivity extends AppCompatActivity {
         listColor.add("#f79071"); //2
         listColor.add("#f40552"); //3
         listColor.add("#d7385e"); //3
-        listColor.add("#00909e"); //3
+        //listColor.add("#00909e"); //3
 
         listColor.add("#ffffff"); //3
         listColor.add("#ffff00"); //3
-        listColor.add("#0000ff"); //3
-        listColor.add("#bf00ff"); //3
+        //listColor.add("#0000ff"); //3
+        //listColor.add("#bf00ff"); //3
         listColor.add("#b3cccc"); //3
         listColor.add("#ff00ff"); //3
         listColor.add("#999999"); //3
-        listColor.add("#ff3300"); //3
+        //listColor.add("#ff3300"); //3
 
         listColor.add("#4000ff"); //3
         listColor.add("#ff6600"); //3
@@ -110,6 +106,8 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void initViews() {
+        btnAboutus= findViewById(R.id.btnAboutus);
+        btnAlarm= findViewById(R.id.btnAlarm);
         choosecolor = findViewById(R.id.choosecolor);
         this.ll_set_time = (LinearLayout) findViewById(R.id.ll_set_time);
         this.tvTime = (TextView) findViewById(R.id.tv_reminder_time_desc);
@@ -143,13 +141,16 @@ public class SettingsActivity extends AppCompatActivity {
                 }
             }
         });
+
         checkbox = findViewById(R.id.checkbox);
         this.rb_default = (RadioButton) findViewById(R.id.rb_default);
         this.rg_fonts = (RadioGroup) findViewById(R.id.rg_fonts);
         this.rb_smallfont = (RadioButton) findViewById(R.id.rb_smallfont);
         this.rb_bigfont = (RadioButton) findViewById(R.id.rb_bigfont);
         this.rb_largefont = (RadioButton) findViewById(R.id.rb_largefont);
+
         this.rg_fonts.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.rb_bigfont:
@@ -192,10 +193,36 @@ public class SettingsActivity extends AppCompatActivity {
         choosecolor.setOnClickListener(v -> {
             Dialog dialog = new Dialog(context);
             dialog.setContentView(R.layout.color_popuplayout);
-            dialog.setCancelable(false);
-            dialog.setCanceledOnTouchOutside(false);
+            dialog.setCancelable(true);
+            dialog.setCanceledOnTouchOutside(true);
             inflatecoulorVIews(dialog);
             dialog.show();
+        });
+
+        btnAlarm.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(context, AlarmActivity.class);
+                startActivity(i);
+            }
+        });
+
+        btnAboutus.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Dialog dialog = new Dialog(context);
+                dialog.setContentView(R.layout.custom_about);
+                dialog.setTitle("");
+
+                Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
+                dialogButton.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+            }
         });
     }
 

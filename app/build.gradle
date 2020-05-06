@@ -37,4 +37,15 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.google.android:flexbox:0.3.1'
+
+    // TimeKeeper SDK
+    implementation project(':timekeeper')
+
+    // Marshmallow permissions
+    implementation 'com.karumi:dexter:5.0.0'
+
+    // Stetho
+    implementation 'com.facebook.stetho:stetho:1.5.0'
+    implementation 'com.github.judemanutd:autostarter:1.0.8'
+
 }

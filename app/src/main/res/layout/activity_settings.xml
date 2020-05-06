@@ -9,6 +9,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -16,6 +17,7 @@
 
             <LinearLayout
                 android:id="@+id/llReminder"
+                android:visibility="gone"
                 style="@style/settings_item_layout">
 
                 <TextView
@@ -52,6 +54,7 @@
 
                 <LinearLayout
                     android:id="@+id/ll_set_time"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -88,6 +91,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
+                android:visibility="gone"
                 android:background="@color/textColorSecondary" />
 
             <LinearLayout
@@ -131,6 +135,50 @@
                     android:background="@color/colorPrimary"
                     android:padding="@dimen/_5sdp"
                     android:text="Pick Color"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_15sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:visibility="visible">
+
+                <TextView
+                    style="@style/settings_sub_header"
+                    android:text="Set Alarm" />
+
+                <Button
+                    android:id="@+id/btnAlarm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/colorPrimary"
+                    android:padding="@dimen/_5sdp"
+                    android:text="Set Alarm"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/_15sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:visibility="visible">
+
+                <Button
+                    android:id="@+id/btnAboutus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/colorPrimary"
+                    android:padding="@dimen/_5sdp"
+                    android:text="About Us"
                     android:textAllCaps="false"
                     android:textColor="#ffffff"
                     android:textSize="@dimen/_15sdp" />
@@ -189,8 +237,6 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
-
-
 
 
 </LinearLayout>

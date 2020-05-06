@@ -1,7 +1,6 @@
 package com.app.nightclock;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -10,7 +9,10 @@ import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Point;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Build.VERSION;
 import android.os.Bundle;
 import android.text.Editable;
@@ -31,11 +33,9 @@ import android.widget.DigitalClock;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.app.nightclock.alarm.SettingsActivity;
 import com.app.nightclock.alarmutils.LocalData;
 import com.app.nightclock.util.Utils;
-
-import org.w3c.dom.Text;
+import com.judemanutd.autostarter.AutoStartPermissionHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -56,6 +56,8 @@ public class TimerActivity extends AppCompatActivity implements OnClickListener 
     ImageView iv_lock;
     ImageView iv_settings;
     LocalData localData;
+    float screenWidth,screenHeight;
+
 
     private BroadcastReceiver mBatInfoReceiver = new BroadcastReceiver() {
         public void onReceive(Context ctxt, Intent intent) {
@@ -86,7 +88,12 @@ public class TimerActivity extends AppCompatActivity implements OnClickListener 
         setContentView((int) R.layout.activity_main);
         context = this;
         localData = new LocalData(this.context);
-        //AutoStartHelper.getInstance().getAutoStartPermission(context);
+
+
+        //Toast.makeText(context, ""+Utils.getAutoStart(context), Toast.LENGTH_SHORT).show();
+        if(!Utils.getAutoStart(context)) {
+            AutoStartHelper.getInstance().getAutoStartPermission(context);
+        }
 
         initViews();
 
@@ -116,6 +123,48 @@ public class TimerActivity extends AppCompatActivity implements OnClickListener 
         localData = new LocalData(getApplicationContext());
         registerReceiver(this.mBatInfoReceiver, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         hideSystemUI();
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2)
+        {
+            Point size = new Point();
+            getWindowManager().getDefaultDisplay().getSize(size);
+            screenWidth = size.x;
+            screenHeight = size.y;
+        }
+        else
+        {
+            Display display = getWindowManager().getDefaultDisplay();
+            screenWidth = display.getWidth();
+            screenHeight = display.getHeight();
+        }
+
+        setTextSize();
+
+    }
+
+    private void setTextSize() {
+        Paint paint = new Paint();
+        float textWidth = paint.measureText("00");
+        float textSize = (int) ((screenWidth / textWidth) * paint.getTextSize());
+        paint.setTextSize(textSize);
+
+        textWidth = paint.measureText("00");
+        textSize = (int) ((screenWidth / textWidth) * paint.getTextSize());
+
+        // Re-measure with font size near our desired result
+        paint.setTextSize(textSize);
+
+        // Check height constraints
+        Paint.FontMetricsInt metrics = paint.getFontMetricsInt();
+        float textHeight = metrics.descent - metrics.ascent;
+        if (textHeight > screenHeight) {
+            textSize = (int) (textSize * (screenHeight / textHeight));
+            paint.setTextSize(textSize);
+        }
+        Log.e("TEXTSIZE",""+(textSize*.17));
+       // return textSize;
+
     }
 
     private void UpdateDateSet() {
